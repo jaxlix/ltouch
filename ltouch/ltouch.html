@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>移动端左右滑动手势</title>
+		<style type="text/css">
+			#box {
+				width: 200px;
+				height: 200px;
+				background: #028ce5;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+	</body>
+	<script src="touch.min.js" type="text/javascript"></script>
+	<script>
+		ltouch.on("#box", "left", function(){
+			alert("左滑")
+		});
+		ltouch.on("#box", "right", function(){
+			alert("右滑")
+		});
+	</script>
+
+</html>
