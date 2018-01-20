@@ -6,25 +6,279 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<title>移动端左右滑动手势</title>
 		<style type="text/css">
-			#box {
-				width: 200px;
-				height: 200px;
-				background: #028ce5;
-				margin: 0 auto;
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			html {
+				font-size: 62.5%;
+				font-family: Helvetica;
+			}
+			
+			body {
+				font-size: 1.4rem;
+				background-color: #fff;
+				/*流畅滚动*/
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			.email-list {
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.item {
+				width: 100%;
+				height: 120px;
+				padding: 10px;
+				box-sizing: border-box;
+				position: relative;
+				border-bottom: 1px solid #DCDCDC;
+			}
+			
+			.email-tx {
+				float: left;
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				margin: 10px 5px 0 5px;
+				text-align: center;
+				font-size: 2rem;
+				color: #fff;
+				background-color: #C79662;
+				font-weight: bold;
+				border-radius: 50%;
+			}
+			
+			.email-msg {
+				position: relative;
+				height: 30px;
+				line-height: 30px;
+			}
+			
+			.email-sender {
+				display: block;
+				margin-right: 100px;
+				font-size: 1.8rem;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.email-Date {
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 100px;
+				text-align: center;
+				color: #a3a3a3;
+			}
+			
+			.email-title {
+				font-size: 1.6rem;
+				line-height: 26px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.email-con {
+				color: #a3a3a3;
+				line-height: 20px;
+				padding: 3px 0;
+				overflow: hidden;
+				white-space: normal;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+			}
+			
+			.email-div-btns {
+				position: absolute;
+				right: -60px;
+				top: 0;
+				width: 60px;
+				height: 120px;
+				border-bottom: 1px solid #dcdcdc;
+			}
+			
+			.email-div-btns>button {
+				width: 60px;
+				height: 100%;
+				color: #fff;
+				font-size: 1.6rem;
+				border: 0;
+			}
+			
+			@keyframes moveLeft {
+				from {
+					right: 0;
+				}
+				to {
+					right: 60px;
+				}
+			}
+			
+			@-moz-keyframes moveLeft {
+				from {
+					right: 0;
+				}
+				to {
+					right: 60px;
+				}
+			}
+			
+			@-webkit-keyframes moveLeft {
+				from {
+					right: 0;
+				}
+				to {
+					right: 60px;
+				}
+			}
+			
+			@-o-keyframes moveLeft {
+				from {
+					right: 0;
+				}
+				to {
+					right: 60px;
+				}
+			}
+			
+			.a-move-left {
+				animation: moveLeft .3s forwards;
+				-moz-animation: moveLeft .3s forwards;
+				/* Firefox */
+				-webkit-animation: moveLeft .3s forwards;
+				/* Safari 和 Chrome */
+				-o-animation: moveLeft .3s forwards;
+			}
+			
+			@keyframes moveRight {
+				from {
+					right: 60px;
+				}
+				to {
+					right: 0;
+				}
+			}
+			
+			@-moz-keyframes moveRight {
+				from {
+					right: 60px;
+				}
+				to {
+					right: 0;
+				}
+			}
+			
+			@-webkit-keyframes moveRight {
+				from {
+					right: 60px;
+				}
+				to {
+					right: 0;
+				}
+			}
+			
+			@-o-keyframes moveRight {
+				from {
+					right: 60px;
+				}
+				to {
+					right: 0;
+				}
+			}
+			
+			.a-move-right {
+				animation: moveRight .3s forwards;
+				-moz-animation: moveRight .3s forwards;
+				/* Firefox */
+				-webkit-animation: moveRight .3s forwards;
+				/* Safari 和 Chrome */
+				-o-animation: moveRight .3s forwards;
 			}
 		</style>
 	</head>
 
 	<body>
-		<div id="box"></div>
+		<ul class="email-list">
+			<li class="item">
+				<div class="box-main">
+					<p class="email-tx">李</p>
+					<div>
+						<p class="email-msg">
+							<span class="email-sender">李子羽</span>
+							<span class="email-Date">2017-12-25</span>
+						</p>
+						<p class="email-title">社会主义核心价值观</p>
+						<p class="email-con">社会主义核心价值观是社会主义核心价值体系的内核，体现社会主义核心价值体系的根本性质和基本特征，反映社会主义核心价值体系的丰富内涵和实践要求，是社会主义核心价值体系的高度凝练和集中表达</p>
+					</div>
+				</div>
+				<div class="email-div-btns">
+					<button>删除</button>
+				</div>
+			</li>
+			<li class="item">
+				<div class="box-main">
+					<p class="email-tx">李</p>
+					<div>
+						<p class="email-msg">
+							<span class="email-sender">李子羽</span>
+							<span class="email-Date">2017-12-25</span>
+						</p>
+						<p class="email-title">社会主义核心价值观</p>
+						<p class="email-con">社会主义核心价值观是社会主义核心价值体系的内核，体现社会主义核心价值体系的根本性质和基本特征，反映社会主义核心价值体系的丰富内涵和实践要求，是社会主义核心价值体系的高度凝练和集中表达</p>
+					</div>
+				</div>
+				<div class="email-div-btns">
+					<button>删除</button>
+				</div>
+			</li>
+			<li class="item">
+				<div class="box-main">
+					<p class="email-tx">李</p>
+					<div>
+						<p class="email-msg">
+							<span class="email-sender">李子羽</span>
+							<span class="email-Date">2017-12-25</span>
+						</p>
+						<p class="email-title">社会主义核心价值观</p>
+						<p class="email-con">社会主义核心价值观是社会主义核心价值体系的内核，体现社会主义核心价值体系的根本性质和基本特征，反映社会主义核心价值体系的丰富内涵和实践要求，是社会主义核心价值体系的高度凝练和集中表达</p>
+					</div>
+				</div>
+				<div class="email-div-btns">
+					<button>删除</button>
+				</div>
+			</li>
+		</ul>
 	</body>
-	<script src="touch.min.js" type="text/javascript"></script>
+	<script src="./touch.js" type="text/javascript"></script>
 	<script>
-		ltouch.on("#box", "left", function(){
-			alert("左滑")
+		ltouch.on(".item", "left", function(e) {
+			var tar = e.target;
+			while(tar.nodeName != "LI"){
+				tar = tar.parentNode
+			}
+			if(tar.className.indexOf("a-move-right")){
+				tar.className = tar.className.replace("a-move-right","")
+			}
+			tar.className = tar.className + " a-move-left";
 		});
-		ltouch.on("#box", "right", function(){
-			alert("右滑")
+		ltouch.on(".item", "right", function(e) {
+			var tar = e.target;
+			while(tar.nodeName != "LI"){
+				tar = tar.parentNode
+			}
+			if(tar.className.indexOf("a-move-left")){
+				tar.className = tar.className.replace("a-move-left","")
+			}
+			tar.className = tar.className + " a-move-right";
 		});
 	</script>
 
